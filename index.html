@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Surprise!</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <h2>Loading Surprise</h2>
+    <div class="loader"></div>
+    <div id="countdown-timer">5</div>
+    <h3>Please Wait...</h3>
+  </div>
+
+  <!-- Reveal Screen -->
+  <div id="reveal-screen" style="display: none;">
+    
+    <!-- 1) "We're Expecting!!" at the top -->
+    <h1 id="main-header">We're Expecting!!</h1>
+    
+    <!-- 2) Bouncing Baby Icon -->
+    <div id="bouncing-baby-container">
+      <img id="bouncing-baby" src="baby_icon.png" alt="Bouncing Baby">
+    </div>
+
+    <!-- 3) Announcement + Reveal Date -->
+    <div id="announcement-wrapper">
+      <h1 id="announcement-text">
+        Baby ???? Cooper arriving <br>
+      </h1>
+      <div id="due-date-container">
+        <button id="reveal-due-date" class="reveal-btn">Reveal Due Date</button>
+        <span id="due-date" class="hidden">????</span>
+      </div>
+    </div>
+
+    <!-- 4) Gender Guessing Game -->
+    <div id="guess-section">
+      <p id="guess-prompt">Guess if it's a Boy, a Girl, or a Surprise:</p>
+      <div id="gender-guess">
+        <button class="guess-btn" data-gender="Boy">Boy</button>
+        <button class="guess-btn" data-gender="Girl">Girl</button>
+        <button class="guess-btn" data-gender="Surprise">Surprise</button>
+      </div>
+    </div>
+
+    <!-- 5) Sonogram Container -->
+    <div id="sonogram-container">
+      <img id="sonogram" src="baby_sonogram_hide.jpg" alt="Baby Sonogram">
+      <!-- Magnify Glass Overlay (only absolute item) -->
+      <img class="magnify-overlay" src="enlarge_image.png" alt="Click to enlarge">
+
+      <!-- 6) Media Controls: Download (left), Mute (right) -->
+      <div id="media-controls" class="hidden">
+        <a id="download-button" href="baby_sonogram_show.jpg" download="baby_sonogram_show.jpg" class="download-btn">
+          Download Sonogram
+        </a>
+        <button id="mute-button" class="audio-control" hidden>Mute</button>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox hidden">
+      <img id="lightbox-image" src="" alt="Sonogram">
+    </div>
+
+    <!-- Countdown Timer -->
+    <div id="due-countdown" class="hidden"></div>
+
+    <!-- Fireworks Container -->
+    <div id="fireworks-container" class="hidden"></div>
+
+  </div>
+
+  <!-- Background Audio -->
+  <audio id="baby-sound" src="baby_giggle.mp3" preload="auto"></audio>
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fireworks-js/dist/fireworks.min.js"></script>
+</body>
+</html>

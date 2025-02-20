@@ -1,0 +1,522 @@
+/* =========================
+   1) BASIC PAGE & LOADING
+   ========================= */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;             /* Center loading screen */
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;          /* No scrolling */
+}
+
+#loading-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #ff6600;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+  position: relative;
+}
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+#countdown-timer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* =========================
+   2) REVEAL SCREEN
+   ========================= */
+#reveal-screen {
+  display: flex;
+  flex-direction: column;     /* Stack everything vertically in a single column */
+  align-items: center;        /* Center everything horizontally */
+  justify-content: flex-start;/* Start from top, stack downward */
+  width: 100vw;
+  height: 100vh;
+  padding: 2vh 2vw;
+  box-sizing: border-box;
+  overflow: hidden;           /* No scrolling */
+  background-image: url('baby_background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #e0e0e0;
+  animation: fadeIn 1s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Ensure each top-level section is centered with minimal vertical spacing */
+#main-header,
+#bouncing-baby-container,
+#announcement-wrapper,
+#guess-section,
+#sonogram-container,
+#media-controls {
+  width: 100%;            /* Occupy full width of parent */
+  display: flex;          /* Let each container handle its content */
+  flex-direction: column; /* Stack content within each section vertically */
+  align-items: center;    /* Center items horizontally */
+  margin: 1vh 0;          /* Small vertical space around each section */
+}
+
+/* =========================
+   3) MAIN HEADER
+   ========================= */
+#main-header {
+  font-size: 5vh;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+  margin: 0.5vh 0;
+  text-align: center;
+  animation: pulseColor 2s ease-in-out infinite;
+}
+
+@keyframes pulseColor {
+  0% {
+    color: #ff0000;
+    transform: scale(1);
+  }
+  10% {
+    color: #ff3300;
+    transform: scale(1.03);
+  }
+  20% {
+    color: #ff6600;
+    transform: scale(1.06);
+  }
+  30% {
+    color: #ff9900;
+    transform: scale(1.08);
+  }
+  40% {
+    color: #ffcc00;
+    transform: scale(1.1);
+  }
+  50% {
+    color: #00ff00;
+    transform: scale(1.08);
+  }
+  60% {
+    color: #0000ff;
+    transform: scale(1.06);
+  }
+  70% {
+    color: #3300ff;
+    transform: scale(1.04);
+  }
+  80% {
+    color: #6600ff;
+    transform: scale(1.02);
+  }
+  90% {
+    color: #9900ff;
+    transform: scale(1.01);
+  }
+  100% {
+    color: #ff0000;
+    transform: scale(1);
+  }
+}
+
+/* =========================
+   4) BOUNCING BABY ICON
+   ========================= */
+#bouncing-baby-container {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  margin: 1vh auto;      /* Vertical spacing */
+}
+#bouncing-baby {
+  width: 75%;
+  height: auto;
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%,20%,50%,80%,100% { transform: translateY(0); }
+  40% { transform: translateY(-20px); }
+  60% { transform: translateY(-10px); }
+}
+
+/* =========================
+   5) ANNOUNCEMENT WRAPPER
+   ========================= */
+#announcement-wrapper {
+  text-align: center;
+  margin: 0.5vh 0;
+  margin-bottom: 0.5vh;
+}
+#announcement-text {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+  background-color: rgba(0,0,0,0.4);
+  padding: 10px 10px;
+  border-radius: 8px;
+  font-size: 5vh;
+  display: inline-block;
+  background: linear-gradient(90deg, #ff6600, #ff9933, #ffcc00);
+  -webkit-text-stroke: 1px black;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s infinite;
+}
+@keyframes shimmer {
+  0%   { background-position: -100%; }
+  100% { background-position: 200%; }
+}
+#due-date-container {
+  margin-top: 0.1vh;
+  text-align: center;
+}
+#due-date-container button,
+#due-date-container span {
+  display: block;
+  margin: 0 auto;
+}
+#due-date {
+  margin-top: 1px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: 'Georgia', serif;
+  color: #FFD700;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+  transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Reveal Button */
+.reveal-btn {
+  padding: 10px 15px;
+  margin-top: 10px;
+  background-color: #6c5ce7;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.reveal-btn:hover {
+  background-color: #5e4bd8;
+}
+
+/* =========================
+   6) GENDER GUESSING GAME
+   ========================= */
+#guess-section {
+  text-align: center;
+  margin: 0.5vh 0;
+  margin-top: 0.5vh;
+}
+#guess-prompt {
+  font-size: 2.5vh;
+  margin: 0.5vh 0;
+}
+#gender-guess {
+  text-align: center;
+}
+.guess-btn {
+  padding: 10px 15px;
+  margin: 10px;
+  background-color: #00cec9;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.guess-btn:hover {
+  background-color: #00b894;
+}
+
+/* Right/Wrong Answer Styling */
+.correct-gender {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: #3498db !important;
+  color: #3498db !important;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0,0,255,0.7);
+}
+.wrong-gender {
+  color: red;
+  font-weight: bold;
+  position: relative;
+}
+.wrong-gender::after {
+  content: " ❌";
+  font-size: 2.1rem;
+  color: red;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  top: 45%;
+}
+.wrong-answer {
+  position: relative;
+  color: red;
+  font-weight: bold;
+}
+.wrong-answer::after {
+  content: " ❌";
+  font-size: 2.1rem;
+  color: red;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%,-50%);
+}
+.correct-answer {
+  position: relative;
+  color: blue;
+  font-weight: bold;
+}
+.correct-answer::after {
+  content: " ✅";
+  font-size: 2.1rem;
+  color: green;
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%,-50%);
+}
+@keyframes fadeOut {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+.wrong-fade {
+  animation: fadeOut 1s forwards;
+}
+
+/* =========================
+   7) SONOGRAM CONTAINER
+   ========================= */
+#sonogram-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2vh 0;
+}
+#sonogram {
+  display: block;
+  max-width: 90%;
+  max-height:30vh;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+}
+.magnify-overlay {
+  position: absolute;
+  bottom: 15vh;  /* partial overlay at bottom */
+  right: 80vh;   /* partial overlay at right */
+  width: 7%;
+  height: auto;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0.8;
+}
+
+/* =========================
+   8) MEDIA CONTROLS
+   ========================= */
+#media-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* Download on left, Mute on right */
+  align-items: center;
+  gap: 10px;
+  margin: 3vh 0;
+}
+.download-btn,
+.audio-control {
+  padding: 10px 15px;
+  font-size: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.download-btn {
+  background-color: #3498db;
+  color: white;
+}
+.download-btn:hover {
+  background-color: #2980b9;
+}
+.audio-control {
+  background-color: #e74c3c;
+  color: white;
+}
+.audio-control:hover {
+  background-color: #c0392b;
+}
+
+/* =========================
+   9) LIGHTBOX
+   ========================= */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  cursor: pointer;
+}
+
+/* =========================
+   10) HIDDEN/REVEALED
+   ========================= */
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+.revealed {
+  visibility: visible;
+  animation: fadeIn 1s ease-in;
+}
+
+/* =========================
+   11) FIREWORKS ANIMATION
+   ========================= */
+#fireworks-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* So it doesn't interfere with clicks */
+  z-index: 999;         /* On top of everything */
+}
+
+/* =========================
+   11) COUNTDOWN TIMER
+   ========================= */
+/* Countdown Timer Styling */
+#due-countdown {
+  position: absolute;
+  max-width: 90vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: clamp(2vh,3vw,3vh);
+  font-weight: bold;
+  white-space: nowrap;
+  padding: 2vh 2vh;
+  border-radius: 5vh;
+  background-color: rgba(0,0,0,0.5);
+  color: #FE5000;
+  /* Initial position is at the top-left; the animation moves it around */
+  animation: bounceAround 10s linear infinite;
+  z-index: 100; /* Ensure it's above other content */
+}
+
+/* Bounce Animation */
+@keyframes bounceAround {
+  0% {
+    top: 5vh;
+    left: 10vw;
+  }
+  25% {
+    top: 5vh;
+    left: 80vw;
+  }
+  50% {
+    top: 80vh;
+    left: 80vw;
+  }
+  75% {
+    top: 80vh;
+    left: 10vw;
+  }
+  100% {
+    top: 5vh;
+    left: 10vw;
+  }
+}
+
+/* =========================
+   13) RESPONSIVE
+   ========================= */
+@media (max-width: 600px) {
+  #main-header {
+    font-size: 4vh;
+  }
+  #announcement-text {
+    font-size: 3vh;
+  }
+  .guess-btn, .download-btn, .audio-control, .reveal-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+  #sonogram {
+    max-height: 30vh;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  #announcement-text {
+    font-size: 3.5vh;
+  }
+  .guess-btn, .download-btn, .audio-control, .reveal-btn {
+    font-size: 15px;
+  }
+  #sonogram {
+    max-height: 35vh;
+  }
+}
+
+/* =========================
+   14) FORCE FORMATTING
+   ========================= */
+#announcement-wrapper {
+  margin-bottom: 1vh !important;
+}
+
+#guess-section {
+  margin-top: 1vh !important;
+}
+
+#announcement-wrapper h1 {
+  margin: 0 !important;
+}
+
+#guess-prompt {
+  margin: 0 !important;
+}
