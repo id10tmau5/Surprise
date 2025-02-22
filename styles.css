@@ -335,7 +335,7 @@ body {
 .magnify-overlay {
   position: absolute;
   bottom: 15vh;  /* partial overlay at bottom */
-  right: 75vh;   /* partial overlay at right */
+  right: 85vh;   /* partial overlay at right */
   width: 7%;
   height: auto;
   cursor: pointer;
