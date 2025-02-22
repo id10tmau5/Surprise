@@ -515,8 +515,8 @@ body {
     animation: bounceAround-mobile 10s linear infinite !important;  /* Initial position is at the top-left; the animation moves it around */
   }
   .magnify-overlay {
-    bottom: 125px !important;  /* Push it just inside the container */
-    right: 125px !important;   /* Same here */
+    bottom: 100px !important;  /* Push it just inside the container */
+    right: 100px !important;   /* Same here */
     width: 25% !important;    /* Increase the size for mobile */
     z-index: 100 !important;  /* Ensure it sits on top */
     opacity: 0.9 !important;  /* Slightly higher opacity if desired */
