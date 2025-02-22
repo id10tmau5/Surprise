@@ -511,6 +511,9 @@ body {
   #sonogram {
     max-height: 30vh;
   }
+  #due-countdown {
+    animation: bounceAround-mobile 10s linear infinite !important;  /* Initial position is at the top-left; the animation moves it around */
+  }
   .magnify-overlay {
     bottom: 25px !important;  /* Push it just inside the container */
     right: 25px !important;   /* Same here */
@@ -518,9 +521,6 @@ body {
     z-index: 100 !important;  /* Ensure it sits on top */
     opacity: 0.9 !important;  /* Slightly higher opacity if desired */
     border: 2px dashed red !important;  /* temporary debug style */
-  }
-  #due-countdown {
-    animation: bounceAround-mobile 10s linear infinite !important;  /* Initial position is at the top-left; the animation moves it around */
   }
 }
 
