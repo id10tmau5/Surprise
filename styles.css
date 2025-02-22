@@ -512,11 +512,12 @@ body {
     max-height: 30vh;
   }
   .magnify-overlay {
-    bottom: 15vh !important;  /* Push it just inside the container */
-    right: 15vh !important;   /* Same here */
+    bottom: 30vh !important;  /* Push it just inside the container */
+    right: 30vh !important;   /* Same here */
     width: 15% !important;    /* Increase the size for mobile */
     z-index: 100 !important;  /* Ensure it sits on top */
     opacity: 0.9 !important;  /* Slightly higher opacity if desired */
+    border: 2px dashed red;  /* temporary debug style */
   }
   #due-countdown {
     animation: bounceAround-mobile 10s linear infinite !important;  /* Initial position is at the top-left; the animation moves it around */
