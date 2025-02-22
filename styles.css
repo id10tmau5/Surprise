@@ -433,13 +433,13 @@ body {
 /* Countdown Timer Styling */
 #due-countdown {
   position: absolute;
-  max-width: 90vw;
+  max-width: 80vw;
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: clamp(2vh,3vw,3vh);
   font-weight: bold;
   white-space: nowrap;
-  padding: 2vh 2vh;
+  padding: 1vh 1vh;
   border-radius: 5vh;
   background-color: rgba(0,0,0,0.5);
   color: #FE5000;
@@ -478,11 +478,11 @@ body {
   }
   25% {
     top: 10vh;
-    left: 80vw;
+    left: 60vw;
   }
   50% {
     top: 70vh;
-    left: 80vw;
+    left: 60vw;
   }
   75% {
     top: 70vh;
