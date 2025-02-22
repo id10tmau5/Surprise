@@ -511,8 +511,15 @@ body {
   #sonogram {
     max-height: 30vh;
   }
+  .magnify-overlay {
+    bottom: 5px !important;  /* Push it just inside the container */
+    right: 5px !important;   /* Same here */
+    width: 15% !important;    /* Increase the size for mobile */
+    z-index: 100 !important;  /* Ensure it sits on top */
+    opacity: 0.9 !important;  /* Slightly higher opacity if desired */
+  }
   #due-countdown {
-    animation: bounceAround-mobile 10s linear infinite !important; /* Initial position is at the top-left; the animation moves it around */
+    animation: bounceAround-mobile 10s linear infinite !important;  /* Initial position is at the top-left; the animation moves it around */
   }
 }
 
@@ -527,7 +534,7 @@ body {
     max-height: 35vh;
   }
   #due-countdown {
-    animation: bounceAround 10s linear infinite !important; /* Initial position is at the top-left; the animation moves it around */
+    animation: bounceAround 15s linear infinite !important;  /* Initial position is at the top-left; the animation moves it around */
   }
 }
 
