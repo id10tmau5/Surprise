@@ -512,9 +512,9 @@ body {
     max-height: 30vh;
   }
   .magnify-overlay {
-    bottom: 5px !important;  /* Push it just inside the container */
-    right: 5px !important;   /* Same here */
-    width: 15% !important;    /* Increase the size for mobile */
+    bottom: 25px !important;  /* Push it just inside the container */
+    right: 25px !important;   /* Same here */
+    width: 25% !important;    /* Increase the size for mobile */
     z-index: 100 !important;  /* Ensure it sits on top */
     opacity: 0.9 !important;  /* Slightly higher opacity if desired */
     border: 2px dashed red !important;  /* temporary debug style */
