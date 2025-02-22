@@ -443,6 +443,7 @@ body {
   border-radius: 5vh;
   background-color: rgba(0,0,0,0.5);
   color: #FE5000;
+  animation: bounceAround 10s linear infinite;
   z-index: 100; /* Ensure it's above other content */
 }
 
