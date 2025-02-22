@@ -439,7 +439,7 @@ body {
   font-size: clamp(2vh,3vw,3vh);
   font-weight: bold;
   white-space: nowrap;
-  padding: 1vh 1vh;
+  padding: 1vh 1vw;
   border-radius: 5vh;
   background-color: rgba(0,0,0,0.5);
   color: #FE5000;
