@@ -14,6 +14,7 @@ body {
 }
 
 #loading-screen {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,7 +40,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -40%);
+  transform: translate(-50%, -50%);
   font-size: 30px;
   font-weight: bold;
   color: #333;
@@ -442,8 +443,6 @@ body {
   border-radius: 5vh;
   background-color: rgba(0,0,0,0.5);
   color: #FE5000;
-  /* Initial position is at the top-left; the animation moves it around */
-  animation: bounceAround 10s linear infinite;
   z-index: 100; /* Ensure it's above other content */
 }
 
@@ -471,8 +470,31 @@ body {
   }
 }
 
+@keyframes bounceAround-mobile {
+  0% {
+    top: 10vh;
+    left: 10vw;
+  }
+  25% {
+    top: 10vh;
+    left: 80vw;
+  }
+  50% {
+    top: 70vh;
+    left: 80vw;
+  }
+  75% {
+    top: 70vh;
+    left: 10vw;
+  }
+  100% {
+    top: 10vh;
+    left: 10vw;
+  }
+}
+
 /* =========================
-   13) RESPONSIVE
+   13) RESPONSIVE DESIGN
    ========================= */
 @media (max-width: 600px) {
   #main-header {
@@ -488,6 +510,9 @@ body {
   #sonogram {
     max-height: 30vh;
   }
+  due-countdown {
+    animation: bounceAround-mobile 10s linear infinite !important; /* Initial position is at the top-left; the animation moves it around */
+  }
 }
 
 @media (min-width: 601px) and (max-width: 1024px) {
@@ -499,6 +524,9 @@ body {
   }
   #sonogram {
     max-height: 35vh;
+  }
+  due-countdown {
+    animation: bounceAround 10s linear infinite !important; /* Initial position is at the top-left; the animation moves it around */
   }
 }
 
