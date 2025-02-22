@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const now = new Date();
       const diff = dueDateObj - now;
       if (diff <= 0) {
-        countdownEl.textContent = "Due!";
+        countdownEl.textContent = "Due Date Countdown: ";
         clearInterval(intervalId);
         return;
       }
@@ -232,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const blobURL = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = blobURL;
-        link.download = 'baby_sonogram_show.jpg';
+        link.download = sonogram.src;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
