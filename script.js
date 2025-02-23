@@ -223,6 +223,9 @@ document.addEventListener("DOMContentLoaded", () => {
   
   downloadButton.addEventListener('click', (e) => {
     e.preventDefault();
+    const currentImageSrc = sonogram.src;
+    downloadButton.href = currentImageSrc;
+    downloadButton.download = currentImageSrc.split('/').pop();
     fetch(downloadButton.href)
       .then((response) => {
         if (!response.ok) throw new Error('Failed to fetch file');
@@ -232,7 +235,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const blobURL = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = blobURL;
-        link.download = sonogram.src;
+        link.download = downloadButton.download;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
