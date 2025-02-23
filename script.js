@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let correctGuessMade = false;
   let dueDateRevealed = false;
-  let countdownValue = 10;
+  let countdownValue = 5;
   
   // Countdown timer for loading screen
   countdownTimer.textContent = countdownValue;
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       countdownTimer.textContent = countdownValue;
     }
-  }, 1000);
+  }, 5000);
   
   if (babySound) {
     dueDate.textContent = babyDueDate;
