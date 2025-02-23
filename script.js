@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let correctGuessMade = false;
   let dueDateRevealed = false;
-  let countdownValue = 5;
+  let countdownValue = 10;
   
   // Countdown timer for loading screen
   countdownTimer.textContent = countdownValue;
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } catch (err) {
         console.error('Audio playback failed:', err);
       }
-    }, 5000);
+    }, 10000);
   } else {
     console.error('baby-sound element not found');
   }
