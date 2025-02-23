@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       countdownTimer.textContent = countdownValue;
     }
-  }, 10000);
+  }, 1000);
   
   if (babySound) {
     dueDate.textContent = babyDueDate;
