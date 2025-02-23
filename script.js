@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let correctGuessMade = false;
   let dueDateRevealed = false;
-  let countdownValue = 5;
+  let countdownValue = 10;
   
   // Countdown timer for loading screen
   countdownTimer.textContent = countdownValue;
