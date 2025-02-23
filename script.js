@@ -221,6 +221,12 @@ document.addEventListener("DOMContentLoaded", () => {
     lightbox.classList.remove('hidden');
   });
   
+  downloadButton.addEventListener('mouseenter', () => {
+    const currentImageSrc = sonogram.src;
+    downloadButton.href = currentImageSrc;
+    downloadButton.download = currentImageSrc.split('/').pop();
+  });
+  
   downloadButton.addEventListener('click', (e) => {
     e.preventDefault();
     const currentImageSrc = sonogram.src;
